@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title id="doc-title">SAWADOGO Mahmoud Abass — Ingénieur Réseaux &amp; Télécommunications</title>
+<meta id="meta-desc" name="description" content="Portfolio de SAWADOGO Mahmoud Abass, ingénieur spécialisé en réseaux, télécommunications et transmission (FH, fibre optique, radio), avec une polyvalence en systèmes embarqués et automatisme. Ouvert aux opportunités CDI/CDD.">
+<meta name="keywords" content="ingénieur réseaux, télécommunications, faisceaux hertziens, fibre optique, FH, FO, RF, PON, GPON, routage IP, systèmes embarqués, CDI, CDD">
+<meta name="author" content="SAWADOGO Mahmoud Abass">
+
+<meta property="og:title" content="SAWADOGO Mahmoud Abass — Ingénieur Réseaux &amp; Télécommunications">
+<meta property="og:description" content="Ingénieur Réseaux & Télécommunications — FH, FO, RF, IP. Ouvert aux opportunités CDI/CDD.">
+<meta property="og:image" content="assets/photoDeProfilCv.jpg">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/x-icon" href="assets/mas_favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a2b5b5d8a5.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<div id="loader">
+  <div class="loader-mark">
+    <span class="loader-ring"></span>
+    <span class="loader-ring delay"></span>
+    <span class="loader-core">MA</span>
+  </div>
+  <div class="loader-label"><span id="loader-text">LINK ESTABLISHING</span><span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-container">
+    <a href="#hero" class="logo">
+      <span class="logo-mark">MA</span>
+      <span class="logo-text"><span class="logo-surname">SAWADOGO </span><span>Mahmoud Abass</span></span>
+    </a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#profil" class="nav-link" data-target="profil"><i class="fas fa-user"></i> <span data-i18n="nav.profil"></span></a></li>
+      <li><a href="#formations" class="nav-link" data-target="formations"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav.formations"></span></a></li>
+      <li><a href="#experiences" class="nav-link" data-target="experiences"><i class="fas fa-tower-broadcast"></i> <span data-i18n="nav.experiences"></span></a></li>
+      <li><a href="#competences" class="nav-link" data-target="competences"><i class="fas fa-diagram-project"></i> <span data-i18n="nav.competences"></span></a></li>
+      <li><a href="#projets" class="nav-link" data-target="projets"><i class="fas fa-satellite-dish"></i> <span data-i18n="nav.projets"></span></a></li>
+      <li><a href="#outils" class="nav-link" data-target="outils"><i class="fas fa-screwdriver-wrench"></i> <span data-i18n="nav.outils"></span></a></li>
+      <li><a href="#certifications" class="nav-link" data-target="certifications"><i class="fas fa-certificate"></i> <span data-i18n="nav.certifications"></span></a></li>
+      <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact"></span></a></li>
+      <li class="nav-tools-mobile nav-tools"></li>
+    </ul>
+    <div class="nav-tools">
+      <div class="lang-toggle" id="lang-toggle">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+      <div class="nav-toggle" id="nav-toggle" role="button" tabindex="0" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero-net" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <line class="net-line" x1="80" y1="120" x2="380" y2="260"/>
+      <line class="net-line" x1="380" y1="260" x2="700" y2="140"/>
+      <line class="net-line" x1="700" y1="140" x2="1080" y2="220"/>
+      <line class="net-line" x1="380" y1="260" x2="300" y2="520"/>
+      <line class="net-line" x1="300" y1="520" x2="640" y2="620"/>
+      <line class="net-line" x1="640" y1="620" x2="980" y2="560"/>
+      <line class="net-line" x1="700" y1="140" x2="640" y2="620"/>
+      <line class="net-line" x1="1080" y1="220" x2="980" y2="560"/>
+      <path class="net-pulse" d="M80,120 L380,260 L700,140 L1080,220"/>
+      <path class="net-pulse alt" d="M300,520 L640,620 L980,560"/>
+      <path class="net-pulse alt2" d="M380,260 L300,520"/>
+      <path class="net-pulse alt" d="M700,140 L640,620"/>
+      <circle class="net-node pulse" cx="80" cy="120" r="3.5"/>
+      <circle class="net-node pulse" cx="380" cy="260" r="3.5"/>
+      <circle class="net-node pulse" cx="700" cy="140" r="3.5"/>
+      <circle class="net-node pulse" cx="1080" cy="220" r="3.5"/>
+      <circle class="net-node pulse" cx="300" cy="520" r="3.5"/>
+      <circle class="net-node pulse" cx="640" cy="620" r="3.5"/>
+      <circle class="net-node pulse" cx="980" cy="560" r="3.5"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="bars"><span></span><span></span><span></span></span>
+      <span data-i18n="hero.eyebrow"></span>
+    </div>
+    <div class="profile-ring">
+      <img src="assets/photoDeProfilCv.jpg" alt="SAWADOGO Mahmoud Abass" class="profile-img" data-fallback-icon="" data-fallback-type="avatar">
+    </div>
+    <h1 id="typing-text"></h1>
+    <p class="hero-role" id="hero-role"></p>
+    <p class="hero-sub" id="hero-sub"></p>
+    <div class="hero-buttons" id="hero-buttons">
+      <a href="assets/CV Mahmoud Abass SAWADOGO.pdf" class="btn btn-primary" download>
+        <i class="fas fa-download"></i> <span data-i18n="hero.cv"></span>
+      </a>
+      <a href="#contact" class="btn btn-outline">
+        <i class="fas fa-envelope"></i> <span data-i18n="hero.contact"></span>
+      </a>
+      <a href="https://wa.me/212619942459" class="btn btn-outline" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="#linkedin" class="btn btn-outline">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- PROFIL -->
+<section id="profil" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="profil.eyebrow"></div>
+      <h2 data-i18n="profil.title"></h2>
+    </div>
+    <div class="profil-wrap">
+      <div class="profil-stats">
+        <div class="profil-stat"><b>FH/FO</b><span data-i18n="profil.stat1"></span></div>
+        <div class="profil-stat"><b>IP</b><span data-i18n="profil.stat2"></span></div>
+        <div class="profil-stat"><b>RF</b><span data-i18n="profil.stat3"></span></div>
+      </div>
+      <p id="profil-text"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATIONS -->
+<section id="formations" class="section alt fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="formations.eyebrow"></div>
+      <h2 data-i18n="formations.title"></h2>
+    </div>
+    <div class="timeline" id="formations-list"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section id="experiences" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="experiences.eyebrow"></div>
+      <h2 data-i18n="experiences.title"></h2>
+    </div>
+    <div class="filter-buttons" id="exp-filters"></div>
+    <div class="exp-grid" id="exp-grid"></div>
+  </div>
+</section>
+
+<!-- COMPETENCES -->
+<section id="competences" class="section alt fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="competences.eyebrow"></div>
+      <h2 data-i18n="competences.title"></h2>
+      <p class="section-desc" data-i18n="competences.desc"></p>
+    </div>
+    <div id="skills-container"></div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="projets.eyebrow"></div>
+      <h2 data-i18n="projets.title"></h2>
+    </div>
+    <div class="filter-buttons" id="proj-filters"></div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- OUTILS -->
+<section id="outils" class="section alt fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="outils.eyebrow"></div>
+      <h2 data-i18n="outils.title"></h2>
+    </div>
+    <div id="tools-container"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="certifications.eyebrow"></div>
+      <h2 data-i18n="certifications.title"></h2>
+    </div>
+    <div id="certs-container"></div>
+  </div>
+</section>
+
+<!-- RECOMPENSES -->
+<section id="recompenses" class="section alt fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="recompenses.eyebrow"></div>
+      <h2 data-i18n="recompenses.title"></h2>
+    </div>
+    <div class="chip-grid" id="awards-grid"></div>
+  </div>
+</section>
+
+<!-- ASSOCIATIF -->
+<section id="associatif" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="associatif.eyebrow"></div>
+      <h2 data-i18n="associatif.title"></h2>
+    </div>
+    <div class="chip-grid" id="assoc-grid"></div>
+  </div>
+</section>
+
+<!-- LANGUES & HOBBIES -->
+<section id="langues" class="section alt fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="langues.eyebrow"></div>
+      <h2 data-i18n="langues.title"></h2>
+    </div>
+    <div class="lang-hobby-grid">
+      <div class="lh-card">
+        <h3><i class="fas fa-language"></i> <span data-i18n="langues.langTitle"></span></h3>
+        <ul id="lang-list"></ul>
+      </div>
+      <div class="lh-card">
+        <h3><i class="fas fa-futbol"></i> <span data-i18n="langues.hobbyTitle"></span></h3>
+        <ul id="hobby-list"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section fade-up">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="contact.eyebrow"></div>
+      <h2 data-i18n="contact.title"></h2>
+    </div>
+    <div id="form-message" class="form-message"></div>
+    <form action="" method="POST" class="contact-form" id="contact-form">
+      <input type="text" name="honeypot" style="display:none">
+      <input type="text" name="name" id="input-name" required>
+      <input type="email" name="email" id="input-email" required>
+      <textarea name="message" id="input-message" required></textarea>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> <span data-i18n="contact.send"></span></button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p id="footer-text"></p>
+</footer>
+
+<!-- DETAIL MODAL (shared) -->
+<div id="detail-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-body">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close" onclick="closeDetailModal()"><i class="fas fa-xmark"></i></button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>

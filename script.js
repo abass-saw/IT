@@ -1037,12 +1037,13 @@ function openDetail(type, id) {
         <h5><i class="fas fa-circle-check"></i> ${t("modal.results")}</h5>
         <ul>${p[LANG].results.map(r => `<li>${r}</li>`).join("")}</ul>
       </div>
-      ${p.caseStudyUrl ? `
+
+     ${p.caseStudyUrl ? `
       <div class="modal-section" style="margin-top:1.6rem; padding-top:1.2rem; border-top:1px solid var(--border);">
-        <a href="${p.caseStudyUrl}" class="btn btn-primary" style="width:100%; justify-content:center;">
-          <i class="fas fa-arrow-up-right-from-square"></i> ${LANG === 'fr' ? 'Consulter l\'étude de cas & captures' : 'View full case study & captures'}
+        <a href="${p.caseStudyUrl}" class="btn btn-primary" style="width:100%; justify-content:center; text-decoration:none;">
+          <i class="fas fa-arrow-up-right-from-square"></i> ${LANG === 'fr' ? 'Consulter l\'étude de cas & captures complètes' : 'View full case study & captures'}
         </a>
-      </div>` : ""}`;
+      </div>` : ""};
   }
   // Modale Associations
   else if (type === "assoc") {

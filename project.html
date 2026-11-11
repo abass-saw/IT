@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">Projet — SAWADOGO Mahmoud Abass</title>
+<meta name="author" content="SAWADOGO Mahmoud Abass">
+<link rel="icon" type="image/x-icon" href="assets/mas_favicon.ico">
+
+<script>
+try {
+  var q = new URLSearchParams(location.search).get("theme");
+  var saved = (q === "light" || q === "dark") ? q : localStorage.getItem("theme");
+  document.documentElement.setAttribute("data-theme",
+    saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+} catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="navbar" class="scrolled">
+  <div class="container nav-container">
+    <a href="index.html" class="logo" aria-label="SAWADOGO Mahmoud Abass">
+      <span class="logo-mark">MA</span>
+      <span class="logo-text"><span class="logo-surname">SAWADOGO </span>Mahmoud Abass</span>
+    </a>
+    <div class="nav-tools">
+      <a href="index.html#projets" class="btn btn-outline pj-back-top" id="back-top"><i class="fas fa-arrow-left"></i><span id="back-top-text"></span></a>
+      <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" class="active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false">
+        <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i><span class="knob" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="pj-main">
+  <div class="container narrow" id="pj-root"></div>
+</main>
+
+<footer><p id="footer-text"></p></footer>
+
+<!-- MODALE MOT DE PASSE (rapports) -->
+<div id="pwd-modal" class="modal modal-top" role="dialog" aria-modal="true" aria-labelledby="pwd-title">
+  <div class="modal-content narrow-modal">
+    <button type="button" class="modal-close" id="pwd-close" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+    <div class="pwd-icon"><i class="fas fa-lock"></i></div>
+    <h2 class="modal-title" id="pwd-title"></h2>
+    <p class="pwd-text" id="pwd-text"></p>
+    <form id="pwd-form" novalidate>
+      <label for="pwd-input" id="pwd-label"></label>
+      <input type="password" id="pwd-input" autocomplete="off" required>
+      <p class="pwd-error" id="pwd-error" role="alert"></p>
+      <div class="pwd-actions">
+        <button type="submit" class="btn btn-primary" id="pwd-submit"></button>
+        <button type="button" class="btn btn-outline" id="pwd-cancel"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="project.js"></script>
+</body>
+</html>

@@ -5,60 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title id="doc-title">SAWADOGO Mahmoud Abass — Ingénieur Réseaux &amp; Télécommunications</title>
-<meta id="meta-desc" name="description" content="Portfolio de SAWADOGO Mahmoud Abass, ingénieur spécialisé en réseaux, télécommunications et transmission (FH, fibre optique, radio), avec une polyvalence en systèmes embarqués et automatisme. Ouvert aux opportunités CDI/CDD.">
-<meta name="keywords" content="ingénieur réseaux, télécommunications, faisceaux hertziens, fibre optique, FH, FO, RF, PON, GPON, routage IP, systèmes embarqués, CDI, CDD">
+<meta name="description" content="Portfolio de SAWADOGO Mahmoud Abass, ingénieur d'État junior en Systèmes Intelligents, Communicants et Mobiles, spécialisé en réseaux, télécommunications et transmission (FH, fibre optique, RF). Ouvert aux opportunités.">
+<meta name="keywords" content="ingénieur réseaux, télécommunications, faisceaux hertziens, fibre optique, RF, routage IP, systèmes embarqués, CDI, CDD">
 <meta name="author" content="SAWADOGO Mahmoud Abass">
-
 <meta property="og:title" content="SAWADOGO Mahmoud Abass — Ingénieur Réseaux &amp; Télécommunications">
-<meta property="og:description" content="Ingénieur Réseaux & Télécommunications — FH, FO, RF, IP. Ouvert aux opportunités CDI/CDD.">
+<meta property="og:description" content="Ingénieur d'État junior — Réseaux, Télécoms, FH, FO, RF, IP. Ouvert aux opportunités.">
 <meta property="og:image" content="assets/photoDeProfilCv.jpg">
 <meta property="og:type" content="website">
-
 <link rel="icon" type="image/x-icon" href="assets/mas_favicon.ico">
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a2b5b5d8a5.js" crossorigin="anonymous"></script>
+<!-- Thème appliqué avant le rendu pour éviter tout flash -->
+<script>
+try {
+  var q = new URLSearchParams(location.search).get("theme");
+  var saved = (q === "light" || q === "dark") ? q : localStorage.getItem("theme");
+  document.documentElement.setAttribute("data-theme",
+    saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+} catch (e) {}
+</script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="scroll-progress"></div>
 
-<div id="loader">
+<div id="loader" aria-hidden="true">
   <div class="loader-mark">
     <span class="loader-ring"></span>
     <span class="loader-ring delay"></span>
     <span class="loader-core">MA</span>
   </div>
-  <div class="loader-label"><span id="loader-text">LINK ESTABLISHING</span><span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></div>
 </div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
   <div class="container nav-container">
-    <a href="#hero" class="logo">
+    <a href="#hero" class="logo" aria-label="SAWADOGO Mahmoud Abass">
       <span class="logo-mark">MA</span>
-      <span class="logo-text"><span class="logo-surname">SAWADOGO </span><span>Mahmoud Abass</span></span>
+      <span class="logo-text"><span class="logo-surname">SAWADOGO </span>Mahmoud Abass</span>
     </a>
     <ul class="nav-links" id="nav-menu">
-      <li><a href="#profil" class="nav-link" data-target="profil"><i class="fas fa-user"></i> <span data-i18n="nav.profil"></span></a></li>
-      <li><a href="#formations" class="nav-link" data-target="formations"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav.formations"></span></a></li>
-      <li><a href="#experiences" class="nav-link" data-target="experiences"><i class="fas fa-tower-broadcast"></i> <span data-i18n="nav.experiences"></span></a></li>
-      <li><a href="#competences" class="nav-link" data-target="competences"><i class="fas fa-diagram-project"></i> <span data-i18n="nav.competences"></span></a></li>
-      <li><a href="#projets" class="nav-link" data-target="projets"><i class="fas fa-satellite-dish"></i> <span data-i18n="nav.projets"></span></a></li>
-      <li><a href="#outils" class="nav-link" data-target="outils"><i class="fas fa-screwdriver-wrench"></i> <span data-i18n="nav.outils"></span></a></li>
-      <li><a href="#certifications" class="nav-link" data-target="certifications"><i class="fas fa-certificate"></i> <span data-i18n="nav.certifications"></span></a></li>
-      <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact"></span></a></li>
-      <li class="nav-tools-mobile nav-tools"></li>
+      <li><a href="#profil" class="nav-link" data-target="profil"><i class="fas fa-user"></i><span data-i18n="nav.profil"></span></a></li>
+      <li><a href="#formations" class="nav-link" data-target="formations"><span data-i18n="nav.formations"></span></a></li>
+      <li><a href="#experiences" class="nav-link" data-target="experiences"><i class="fas fa-briefcase"></i><span data-i18n="nav.experiences"></span></a></li>
+      <li><a href="#competences" class="nav-link" data-target="competences"><span data-i18n="nav.competences"></span></a></li>
+      <li><a href="#projets" class="nav-link" data-target="projets"><i class="fas fa-diagram-project"></i><span data-i18n="nav.projets"></span></a></li>
+      <li><a href="#outils" class="nav-link" data-target="outils"><span data-i18n="nav.outils"></span></a></li>
+      <li><a href="#certifications" class="nav-link" data-target="certifications"><span data-i18n="nav.certifications"></span></a></li>
+      <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope"></i><span data-i18n="nav.contact"></span></a></li>
     </ul>
     <div class="nav-tools">
-      <div class="lang-toggle" id="lang-toggle">
-        <button data-lang="fr" class="active">FR</button>
-        <button data-lang="en">EN</button>
+      <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" class="active">FR</button>
+        <button type="button" data-lang="en">EN</button>
       </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
-      <div class="nav-toggle" id="nav-toggle" role="button" tabindex="0" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></div>
+      <button type="button" class="theme-toggle" id="theme-toggle" role="switch" aria-checked="false">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+        <i class="fas fa-sun" aria-hidden="true"></i>
+        <span class="knob" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -76,210 +87,184 @@
       <line class="net-line" x1="700" y1="140" x2="640" y2="620"/>
       <line class="net-line" x1="1080" y1="220" x2="980" y2="560"/>
       <path class="net-pulse" d="M80,120 L380,260 L700,140 L1080,220"/>
-      <path class="net-pulse alt" d="M300,520 L640,620 L980,560"/>
-      <path class="net-pulse alt2" d="M380,260 L300,520"/>
-      <path class="net-pulse alt" d="M700,140 L640,620"/>
-      <circle class="net-node pulse" cx="80" cy="120" r="3.5"/>
-      <circle class="net-node pulse" cx="380" cy="260" r="3.5"/>
-      <circle class="net-node pulse" cx="700" cy="140" r="3.5"/>
-      <circle class="net-node pulse" cx="1080" cy="220" r="3.5"/>
-      <circle class="net-node pulse" cx="300" cy="520" r="3.5"/>
-      <circle class="net-node pulse" cx="640" cy="620" r="3.5"/>
-      <circle class="net-node pulse" cx="980" cy="560" r="3.5"/>
+      <path class="net-pulse p2" d="M300,520 L640,620 L980,560"/>
+      <circle class="net-node" cx="80" cy="120" r="3.5"/><circle class="net-node" cx="380" cy="260" r="3.5"/>
+      <circle class="net-node" cx="700" cy="140" r="3.5"/><circle class="net-node" cx="1080" cy="220" r="3.5"/>
+      <circle class="net-node" cx="300" cy="520" r="3.5"/><circle class="net-node" cx="640" cy="620" r="3.5"/>
+      <circle class="net-node" cx="980" cy="560" r="3.5"/>
     </svg>
   </div>
 
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="bars"><span></span><span></span><span></span></span>
-      <span data-i18n="hero.eyebrow"></span>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-status"><span class="bars"><span></span><span></span><span></span></span><span data-i18n="hero.status"></span></div>
+      <h1 id="typing-text" aria-label="SAWADOGO Mahmoud Abass"></h1>
+      <p class="hero-role" id="hero-role" data-i18n="hero.role"></p>
+      <p class="hero-sub" id="hero-sub" data-i18n="hero.sub"></p>
+      <p class="hero-goal-label" data-i18n="hero.goal"></p>
+      <ul class="hero-goals" id="hero-goals"></ul>
+      <div class="hero-buttons" id="hero-buttons">
+        <a href="#" class="btn btn-primary" id="cv-btn" download><i class="fas fa-download"></i><span data-i18n="hero.cv"></span></a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i><span data-i18n="hero.contact"></span></a>
+        <a href="#" class="btn btn-outline" id="whatsapp-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+        <a href="#" class="btn btn-outline" id="linkedin-btn" target="_blank" rel="noopener" hidden><i class="fab fa-linkedin"></i>LinkedIn</a>
+      </div>
     </div>
-    <div class="profile-ring">
-      <img src="assets/photoDeProfilCv.jpg" alt="SAWADOGO Mahmoud Abass" class="profile-img" data-fallback-icon="" data-fallback-type="avatar">
-    </div>
-    <h1 id="typing-text"></h1>
-    <p class="hero-role" id="hero-role"></p>
-    <p class="hero-sub" id="hero-sub"></p>
-    <div class="hero-buttons" id="hero-buttons">
-      <a href="" class="btn btn-primary" download>
-        <i class="fas fa-download"></i> <span data-i18n="hero.cv"></span>
-      </a>
-      <a href="#contact" class="btn btn-outline">
-        <i class="fas fa-envelope"></i> <span data-i18n="hero.contact"></span>
-      </a>
-      <a href="https://wa.me/212619942459" class="btn btn-outline" target="_blank" rel="noopener">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="#linkedin" class="btn btn-outline">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
+
+    <div class="hero-side">
+      <figure class="hero-photo">
+        <img src="assets/photoDeProfilCv.jpg" alt="SAWADOGO Mahmoud Abass" data-fallback-icon="" data-fallback-type="avatar">
+      </figure>
+      <div class="hero-stats">
+        <div class="stat"><b id="stat-tech">0</b><span data-i18n="hero.stat1"></span></div>
+        <div class="stat"><b id="stat-exp">0</b><span data-i18n="hero.stat2"></span></div>
+        <div class="stat"><b id="stat-proj">0</b><span data-i18n="hero.stat3"></span></div>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- PROFIL -->
-<section id="profil" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="profil.eyebrow"></div>
-      <h2 data-i18n="profil.title"></h2>
+<main>
+  <!-- PROFIL -->
+  <section id="profil" class="section">
+    <div class="container narrow">
+      <div class="section-head"><h2 data-i18n="profil.title"></h2></div>
+      <p class="profil-text" id="profil-text"></p>
     </div>
-    <div class="profil-wrap">
-      <div class="profil-stats">
-        <div class="profil-stat"><b>FH/FO</b><span data-i18n="profil.stat1"></span></div>
-        <div class="profil-stat"><b>IP</b><span data-i18n="profil.stat2"></span></div>
-        <div class="profil-stat"><b>RF</b><span data-i18n="profil.stat3"></span></div>
-      </div>
-      <p id="profil-text"></p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- FORMATIONS -->
-<section id="formations" class="section alt fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="formations.eyebrow"></div>
-      <h2 data-i18n="formations.title"></h2>
+  <!-- FORMATIONS -->
+  <section id="formations" class="section alt">
+    <div class="container narrow">
+      <div class="section-head"><h2 data-i18n="formations.title"></h2><p class="section-desc" data-i18n="formations.desc"></p></div>
+      <div class="timeline" id="formations-list"></div>
     </div>
-    <div class="timeline" id="formations-list"></div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCES -->
-<section id="experiences" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="experiences.eyebrow"></div>
-      <h2 data-i18n="experiences.title"></h2>
+  <!-- EXPERIENCES -->
+  <section id="experiences" class="section">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="experiences.title"></h2><p class="section-desc" data-i18n="experiences.desc"></p></div>
+      <div class="exp-list" id="exp-list"></div>
     </div>
-    <div class="filter-buttons" id="exp-filters"></div>
-    <div class="exp-grid" id="exp-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- COMPETENCES -->
-<section id="competences" class="section alt fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="competences.eyebrow"></div>
-      <h2 data-i18n="competences.title"></h2>
-      <p class="section-desc" data-i18n="competences.desc"></p>
+  <!-- COMPETENCES -->
+  <section id="competences" class="section alt">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="competences.title"></h2><p class="section-desc" data-i18n="competences.desc"></p></div>
+      <div id="skills-container"></div>
     </div>
-    <div id="skills-container"></div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJETS -->
-<section id="projets" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="projets.eyebrow"></div>
-      <h2 data-i18n="projets.title"></h2>
+  <!-- PROJETS -->
+  <section id="projets" class="section">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="projets.title"></h2><p class="section-desc" data-i18n="projets.desc"></p></div>
+      <div class="projects-grid" id="projects-grid"></div>
+      <div class="center-row"><button type="button" class="btn btn-outline" data-open="allprojects:all"><i class="fas fa-list"></i><span data-i18n="projets.all"></span></button></div>
     </div>
-    <div class="filter-buttons" id="proj-filters"></div>
-    <div class="projects-grid" id="projects-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- OUTILS -->
-<section id="outils" class="section alt fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="outils.eyebrow"></div>
-      <h2 data-i18n="outils.title"></h2>
+  <!-- OUTILS -->
+  <section id="outils" class="section alt">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="outils.title"></h2></div>
+      <div id="tools-container"></div>
     </div>
-    <div id="tools-container"></div>
-  </div>
-</section>
+  </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="certifications.eyebrow"></div>
-      <h2 data-i18n="certifications.title"></h2>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="certifications.title"></h2></div>
+      <div id="certs-container"></div>
     </div>
-    <div id="certs-container"></div>
-  </div>
-</section>
+  </section>
 
-<!-- RECOMPENSES -->
-<section id="recompenses" class="section alt fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="recompenses.eyebrow"></div>
-      <h2 data-i18n="recompenses.title"></h2>
+  <!-- RECOMPENSES -->
+  <section id="recompenses" class="section alt">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="recompenses.title"></h2></div>
+      <div class="card-grid" id="awards-grid"></div>
     </div>
-    <div class="chip-grid" id="awards-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- ASSOCIATIF -->
-<section id="associatif" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="associatif.eyebrow"></div>
-      <h2 data-i18n="associatif.title"></h2>
+  <!-- ASSOCIATIF -->
+  <section id="associatif" class="section">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="associatif.title"></h2></div>
+      <div class="card-grid" id="assoc-grid"></div>
     </div>
-    <div class="chip-grid" id="assoc-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- LANGUES & HOBBIES -->
-<section id="langues" class="section alt fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="langues.eyebrow"></div>
-      <h2 data-i18n="langues.title"></h2>
-    </div>
-    <div class="lang-hobby-grid">
-      <div class="lh-card">
-        <h3><i class="fas fa-language"></i> <span data-i18n="langues.langTitle"></span></h3>
-        <ul id="lang-list"></ul>
-      </div>
-      <div class="lh-card">
-        <h3><i class="fas fa-futbol"></i> <span data-i18n="langues.hobbyTitle"></span></h3>
-        <ul id="hobby-list"></ul>
+  <!-- LANGUES & INTERETS -->
+  <section id="langues" class="section alt">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="langues.title"></h2></div>
+      <div class="lang-hobby-grid">
+        <div class="lh-card"><h3><i class="fas fa-language"></i><span data-i18n="langues.langTitle"></span></h3><ul id="lang-list"></ul></div>
+        <div class="lh-card"><h3><i class="fas fa-heart"></i><span data-i18n="langues.hobbyTitle"></span></h3><ul id="hobby-list"></ul></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section fade-up">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="contact.eyebrow"></div>
-      <h2 data-i18n="contact.title"></h2>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head"><h2 data-i18n="contact.title"></h2><p class="section-desc" data-i18n="contact.desc"></p></div>
+      <div class="contact-grid">
+        <ul class="contact-info">
+          <li><i class="fas fa-location-dot"></i><span data-i18n="contact.location"></span></li>
+          <li><i class="fab fa-whatsapp"></i><a id="contact-whatsapp" href="#" target="_blank" rel="noopener" data-i18n="contact.whatsapp"></a></li>
+          <li id="contact-email-row" hidden><i class="fas fa-envelope"></i><a id="contact-email" href="#"></a></li>
+          <li id="contact-linkedin-row" hidden><i class="fab fa-linkedin"></i><a id="contact-linkedin" href="#" target="_blank" rel="noopener" data-i18n="contact.linkedin"></a></li>
+        </ul>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+          <input type="text" name="honeypot" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="name" id="input-name" autocomplete="name" required>
+          <input type="email" name="email" id="input-email" autocomplete="email" required>
+          <textarea name="message" id="input-message" required></textarea>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i><span data-i18n="contact.send"></span></button>
+        </form>
+      </div>
     </div>
-    <div id="form-message" class="form-message"></div>
-    <form action="" method="POST" class="contact-form" id="contact-form">
-      <input type="text" name="honeypot" style="display:none">
-      <input type="text" name="name" id="input-name" required>
-      <input type="email" name="email" id="input-email" required>
-      <textarea name="message" id="input-message" required></textarea>
-      <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> <span data-i18n="contact.send"></span></button>
-    </form>
-  </div>
-</section>
+  </section>
+</main>
 
-<footer>
-  <p id="footer-text"></p>
-</footer>
+<footer><p id="footer-text"></p></footer>
 
-<!-- DETAIL MODAL (shared) -->
-<div id="detail-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-body">
+<!-- MODALE DE DÉTAILS (partagée) -->
+<div id="detail-modal" class="modal" role="dialog" aria-modal="true" aria-label="Détails">
   <div class="modal-content">
-    <button class="modal-close" id="modal-close-btn" aria-label="Close" onclick="closeDetailModal()"><i class="fas fa-xmark"></i></button>
+    <button type="button" class="modal-close" data-close="detail-modal" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
     <div id="modal-body"></div>
   </div>
 </div>
 
-<button id="back-to-top" aria-label="Back to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
+<!-- MODALE MOT DE PASSE (rapports) -->
+<div id="pwd-modal" class="modal modal-top" role="dialog" aria-modal="true" aria-labelledby="pwd-title">
+  <div class="modal-content narrow-modal">
+    <button type="button" class="modal-close" data-close="pwd-modal" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+    <div class="pwd-icon"><i class="fas fa-lock"></i></div>
+    <h2 class="modal-title" id="pwd-title"></h2>
+    <p class="pwd-text" id="pwd-text"></p>
+    <form id="pwd-form" novalidate>
+      <label for="pwd-input" id="pwd-label"></label>
+      <input type="password" id="pwd-input" autocomplete="off" required>
+      <p class="pwd-error" id="pwd-error" role="alert"></p>
+      <div class="pwd-actions">
+        <button type="submit" class="btn btn-primary" id="pwd-submit"></button>
+        <button type="button" class="btn btn-outline" id="pwd-cancel"></button>
+      </div>
+    </form>
+  </div>
+</div>
 
+<button type="button" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

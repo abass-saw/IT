@@ -107,7 +107,7 @@ const FORMATIONS = [
     }
   },
   {
-    id: "fstt", icon: "fa-book", img: "assets/logos/fstt.png", mono: "FSTT",
+    id: "fstt", icon: "fa-book", img: "assets/fstt.png", mono: "FSTT",
     fr: {
       date: "2021 – 2024", place: "FST Tanger (Université Abdelmalek Essaâdi)",
       title: "Licence en Génie Électrique et Systèmes Industriels",
@@ -124,7 +124,7 @@ const FORMATIONS = [
     }
   },
   {
-    id: "ltn", icon: "fa-book-open", img: "assets/logos/ltnasl.jpeg", mono: "LTN",
+    id: "ltn", icon: "fa-book-open", img: "assets/ltnasl.jpeg", mono: "LTN",
     fr: {
       date: "2018 – 2021", place: "Lycée Technique National Aboubacar Sangoulé Lamizana (LTN ASL)",
       title: "Série F2 — Électronique",
@@ -277,7 +277,7 @@ const SKILLS = [
    media / context / objectives / technologies / results : optionnels                 */
 const PROJECTS = [
   { id: "ipsec", cat: "telecom", featured: true, report: "reports/rapport_ipsec.pdf", caseStudyUrl: "project_ipsec.html",
-    media: { type: "img", src: "images_projets_IPsec/fig_topologie_gns3.jpeg", fallback: "assets/images_projets_IPSec/fig_topologie_gns3.jpeg" },
+    media: { type: "img", src: "assets/images_projets_IPsec/fig_topologie_gns3.jpeg", fallback: "assets/images_projets_IPSec/fig_topologie_gns3.jpeg" },
     fr: { title: "VPN IPsec multisite Hub-and-Spoke (Cisco IOS)", date: "2025", desc: "Conception, déploiement et qualification sous Wireshark d'une topologie WAN chiffrée avec transit inter-agences (hairpinning).",
       context: "Projet technique personnel visant à interconnecter un siège et deux agences distantes via un opérateur public (FAI) simulé, sans routage privé préalable (RFC 1918).",
       objectives: ["Découplage strict entre l'underlay (liens point-à-point /30) et l'overlay (LAN d'entreprise)", "Configuration IKEv1 phase 1 (AES-256 / SHA-1 / DH2 / PSK) et IPsec ESP en mode tunnel", "Routage de transit inter-agences (hairpinning) orchestré sur le concentrateur central R1-HUB", "Audit Wireshark (protocole 50) et corrélation hexadécimale des SPI"],

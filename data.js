@@ -32,14 +32,16 @@ const UI = {
     formations: { title: "Formations", desc: "Un parcours technique construit au Burkina Faso puis au Maroc.", more: "Plus de détails" },
     experiences: { title: "Expériences professionnelles", desc: "Stages et missions de terrain en télécoms, énergie et industrie.", more: "Voir le détail" },
     competences: { title: "Compétences", desc: "Un cœur de compétences en réseaux et télécommunications, complété par une polyvalence technique sur d'autres domaines de l'ingénierie." },
-    projets: { title: "Projets", desc: "Les réalisations les plus représentatives. Les autres projets sont regroupés dans la liste complète.", more: "En savoir plus", all: "Voir tous les projets", allTitle: "Tous les projets", back: "Retour à la liste" },
+    projets: { title: "Projets", desc: "Les réalisations les plus représentatives. Les autres projets sont regroupés dans la liste complète.", more: "Découvrir", all: "Voir tous les projets", allTitle: "Tous les projets", back: "Retour à la liste" },
     outils: { title: "Outils techniques" },
-    certifications: { title: "Licences & certifications" },
+    certifications: { title: "Licences & certifications", zoom: "Agrandir" },
     recompenses: { title: "Récompenses & distinctions" },
     associatif: { title: "Engagement associatif" },
     langues: { title: "Langues & centres d'intérêt", langTitle: "Langues", hobbyTitle: "Centres d'intérêt" },
     contact: { title: "Contact", desc: "Un poste, une mission, une question technique ? Écris-moi, je réponds rapidement.", send: "Envoyer le message", location: "Fès, Maroc", whatsapp: "WhatsApp", email: "E-mail", linkedin: "LinkedIn" },
     groups: { telecom: "Réseaux & Télécommunications", polyvalence: "Polyvalence technique" },
+    groupDesc: { telecom: "Transmission, routage, sécurité et radio : le cœur de mon expertise.", polyvalence: "Embarqué, automatisme, numérique et logiciel : des compétences complémentaires." },
+    groupTools: { telecom: "Simulation, planification et analyse pour les réseaux et la transmission.", polyvalence: "Microcontrôleurs, conception numérique, simulation et développement." },
     cats: { telecom: "Réseaux & Télécoms", iot: "IoT & Embarqué", auto: "Automatisme", ia: "IA & Big Data", fpga: "FPGA & VHDL", fsm: "Machines à états finis (FSM)", instru: "Instrumentation & LabVIEW", adas: "ADAS — Régulateur adaptatif (ACC)", web: "Développement web", adhoc: "Réseaux Ad-hoc & IHM" },
     tap: "Voir les détails",
     modal: { context: "Contexte", objectives: "Objectifs", technologies: "Technologies utilisées", results: "Résultats", whatICanDo: "Ce que je sais faire", whatLearned: "Ce que j'y ai appris", skillsUsed: "Missions réalisées", content: "Contenu de la formation", excellence: "Points d'excellence", report: "Consulter le rapport complet", caseStudy: "Consulter l'étude de cas & captures complètes", verify: "Vérifier le certificat", close: "Fermer" },
@@ -64,14 +66,16 @@ const UI = {
     formations: { title: "Education", desc: "A technical path built in Burkina Faso, then in Morocco.", more: "More details" },
     experiences: { title: "Professional experience", desc: "Internships and field work in telecom, energy and industry.", more: "See details" },
     competences: { title: "Skills", desc: "A core of network and telecommunications expertise, complemented by technical versatility across other engineering fields." },
-    projets: { title: "Projects", desc: "The most representative work. All other projects are grouped in the full list.", more: "Learn more", all: "View all projects", allTitle: "All projects", back: "Back to the list" },
+    projets: { title: "Projects", desc: "The most representative work. All other projects are grouped in the full list.", more: "Discover", all: "View all projects", allTitle: "All projects", back: "Back to the list" },
     outils: { title: "Technical tools" },
-    certifications: { title: "Licenses & certifications" },
+    certifications: { title: "Licenses & certifications", zoom: "Enlarge" },
     recompenses: { title: "Awards & distinctions" },
     associatif: { title: "Extracurricular involvement" },
     langues: { title: "Languages & interests", langTitle: "Languages", hobbyTitle: "Interests" },
     contact: { title: "Contact", desc: "A role, an assignment, a technical question? Write to me, I reply quickly.", send: "Send message", location: "Fez, Morocco", whatsapp: "WhatsApp", email: "Email", linkedin: "LinkedIn" },
     groups: { telecom: "Networks & Telecommunications", polyvalence: "Technical versatility" },
+    groupDesc: { telecom: "Transmission, routing, security and radio: the core of my expertise.", polyvalence: "Embedded, automation, digital design and software: complementary skills." },
+    groupTools: { telecom: "Simulation, planning and analysis for networks and transmission.", polyvalence: "Microcontrollers, digital design, simulation and development." },
     cats: { telecom: "Networks & Telecom", iot: "IoT & Embedded", auto: "Automation", ia: "AI & Big Data", fpga: "FPGA & VHDL", fsm: "Finite State Machines (FSM)", instru: "Instrumentation & LabVIEW", adas: "ADAS — Adaptive Cruise Control (ACC)", web: "Web development", adhoc: "Ad-hoc networks & HMI" },
     tap: "View details",
     modal: { context: "Context", objectives: "Objectives", technologies: "Technologies used", results: "Results", whatICanDo: "What I can do with it", whatLearned: "What I learned", skillsUsed: "Tasks carried out", content: "Program content", excellence: "Points of excellence", report: "Open the full report", caseStudy: "View full case study & captures", verify: "Verify certificate", close: "Close" },
@@ -86,24 +90,24 @@ const UI = {
 /* ---------- 2. FORMATIONS ---------- */
 const FORMATIONS = [
   {
-    id: "fstf", icon: "fa-graduation-cap", img: "assets/logos/logo_fstf.png",
+    id: "fstf", icon: "fa-graduation-cap", img: "assets/logos/logo_fstf.png", mono: "FSTF",
     fr: {
       date: "2024 – 2026", place: "Faculté des Sciences et Techniques de Fès (USMBA)",
       title: "Diplôme d'ingénieur d'État — Systèmes Intelligents, Communicants et Mobiles (SICoM)",
-      intro: "Cycle ingénieur à l'interface des réseaux, des télécommunications, de l'embarqué et des systèmes mobiles.",
-      details: ["Réseaux et protocoles : adressage, routage, commutation, sécurité", "Télécommunications : radiofréquences, faisceaux hertziens, fibre optique, transmission", "Systèmes embarqués, IoT et conception numérique (FPGA)", "Systèmes mobiles et communicants, développement logiciel", "Projet de fin d'études en entreprise chez ACLS (Casablanca, partenaire Huawei HALP), mars – juin 2026"],
+      intro: "Formation d'ingénieur en réseaux, qualité de service (QoS), télécommunications, transmission optique, IoT et sécurité des réseaux.",
+      details: ["Réseaux et protocoles : adressage, routage, commutation", "Qualité de service (QoS) et supervision des réseaux", "Télécommunications : radiofréquences, faisceaux hertziens, transmission", "Transmission optique : fibre optique, réseaux PON/GPON", "IoT, systèmes embarqués et conception numérique (FPGA)", "Sécurité des réseaux", "Projet de fin d'études en entreprise chez ACLS (Casablanca, partenaire Huawei HALP), mars – juin 2026"],
       excellence: ["La FST de Fès fait partie de l'USMBA (Université Sidi Mohamed Ben Abdellah), classée numéro 1 au Maroc depuis plusieurs années, notamment selon le classement international Times Higher Education (THE)", "Formation d'ingénieur d'État avec forte dimension pratique et projets en entreprise"]
     },
     en: {
       date: "2024 – 2026", place: "Faculty of Sciences and Technology of Fez (USMBA)",
       title: "State engineering degree — Intelligent, Communicating and Mobile Systems (SICoM)",
-      intro: "An engineering program at the crossroads of networks, telecommunications, embedded and mobile systems.",
-      details: ["Networks and protocols: addressing, routing, switching, security", "Telecommunications: radio frequency, microwave links, optical fiber, transmission", "Embedded systems, IoT and digital design (FPGA)", "Mobile and communicating systems, software development", "Final-year project in industry at ACLS (Casablanca, Huawei HALP partner), March – June 2026"],
+      intro: "Engineering program in networks, quality of service (QoS), telecommunications, optical transmission, IoT and network security.",
+      details: ["Networks and protocols: addressing, routing, switching", "Quality of service (QoS) and network monitoring", "Telecommunications: radio frequency, microwave links, transmission", "Optical transmission: optical fiber, PON/GPON networks", "IoT, embedded systems and digital design (FPGA)", "Network security", "Final-year project in industry at ACLS (Casablanca, Huawei HALP partner), March – June 2026"],
       excellence: ["FST Fez is part of USMBA (Sidi Mohamed Ben Abdellah University), ranked number 1 in Morocco for several years, notably in the international Times Higher Education (THE) ranking", "State engineering program with a strong hands-on focus and industry projects"]
     }
   },
   {
-    id: "fstt", icon: "fa-book", img: "assets/logos/logo_fstt.png",
+    id: "fstt", icon: "fa-book", img: "assets/logos/logo_fstt.png", mono: "FSTT",
     fr: {
       date: "2021 – 2024", place: "FST Tanger (Université Abdelmalek Essaâdi)",
       title: "Licence en Génie Électrique et Systèmes Industriels",
@@ -120,7 +124,7 @@ const FORMATIONS = [
     }
   },
   {
-    id: "ltn", icon: "fa-book-open", img: "assets/logos/logo_ltn_asl.png",
+    id: "ltn", icon: "fa-book-open", img: "assets/logos/logo_ltn_asl.png", mono: "LTN",
     fr: {
       date: "2018 – 2021", place: "Lycée Technique National Aboubacar Sangoulé Lamizana (LTN ASL)",
       title: "Série F2 — Électronique",
@@ -298,15 +302,15 @@ const PROJECTS = [
     en: { title: "AirSense Tech System", date: "2024 — FST Fez Hackathon", desc: "Real-time air quality control for a car cabin, with sensors and a connected interface.", context: "Embedded system for in-car air quality control.", objectives: ["Multi-parameter measurement (CO2, particles, temperature)", "Smart alerts", "History and analytics"], technologies: ["ESP32", "MQ-135 / DHT22 sensors", "Python", "Mobile app"], results: ["Hackathon award", "Measurement accuracy > 95%", "Real-time response < 1 s"] } },
 
   /* ----- Autres projets (liste complète) ----- */
-  { id: "solar", cat: "iot", featured: false,
+  { id: "solar", cat: "iot", featured: true,
     media: { type: "video", src: "assets/projets/vid_Projet_3S.mp4" },
     fr: { title: "Smart Solar System", date: "2024", desc: "Optimisation d'une installation solaire avec suivi et contrôle de performance en temps réel.", context: "Projet personnel de système solaire avec suivi automatique et supervision IoT.", objectives: ["Maximiser le rendement par tracking solaire", "Suivre la production en temps réel", "Créer une interface web de supervision", "Implémenter un stockage intelligent"], technologies: ["ESP32", "Arduino", "MQTT", "Node-RED", "HTML/CSS/JS"], results: ["Rendement amélioré de 35 %", "Suivi en temps réel via application web", "Autonomie complète du système"] },
     en: { title: "Smart Solar System", date: "2024", desc: "Optimization of a solar installation with real-time monitoring and performance control.", context: "Personal project: solar tracking system with IoT supervision.", objectives: ["Maximize yield through solar tracking", "Track production in real time", "Build a web supervision interface", "Implement smart storage"], technologies: ["ESP32", "Arduino", "MQTT", "Node-RED", "HTML/CSS/JS"], results: ["35% higher yield", "Real-time tracking via web app", "Fully autonomous system"] } },
-  { id: "tri", cat: "auto", featured: false,
+  { id: "tri", cat: "auto", featured: true,
     media: { type: "video", src: "assets/projets/vid_chaine_de_tri.mp4" },
     fr: { title: "Chaîne de tri automatisée", date: "2023 — FST Tanger", desc: "Tri de pièces selon leur qualité via convoyeur, Raspberry Pi et caméra.", context: "Projet d'automatisme industriel : tri de pièces par vision.", objectives: ["Classification automatique par vision", "Tri par couleur et forme", "Contrôle qualité automatisé"], technologies: ["Raspberry Pi", "OpenCV", "Python", "Automate Siemens", "Convoyeur"], results: ["Précision de tri : 97 %", "Cadence : 30 pièces/min", "Réduction des erreurs humaines"] },
     en: { title: "Automated sorting line", date: "2023 — FST Tangier", desc: "Sorting parts by quality via conveyor, Raspberry Pi and camera.", context: "Industrial automation project: vision-based part sorting.", objectives: ["Automatic vision-based classification", "Sorting by color and shape", "Automated quality control"], technologies: ["Raspberry Pi", "OpenCV", "Python", "Siemens PLC", "Conveyor"], results: ["97% sorting accuracy", "30 parts/min throughput", "Reduced human error"] } },
-  { id: "agv", cat: "iot", featured: false,
+  { id: "agv", cat: "iot", featured: true,
     media: { type: "video", src: "assets/projets/vid_RobotOrganisateur.mp4" },
     fr: { title: "AGV industriel (STM32)", date: "2024", desc: "Prototype d'AGV autonome à base de STM32, capable de suivre des rails et de transporter des charges.", context: "Prototype d'AGV autonome pour le transport de charges.", objectives: ["Navigation autonome", "Suivi de trajectoire", "Détection d'obstacles"], technologies: ["STM32F4", "Capteurs ultrason", "Encodeurs", "FreeRTOS", "C/C++"], results: ["Précision ± 2 cm", "Vitesse 0,8 m/s", "Charge max 5 kg"] },
     en: { title: "Industrial AGV (STM32)", date: "2024", desc: "Autonomous STM32-based AGV prototype able to follow rails and carry loads.", context: "Autonomous AGV prototype for load transport.", objectives: ["Autonomous navigation", "Trajectory tracking", "Obstacle detection"], technologies: ["STM32F4", "Ultrasonic sensors", "Encoders", "FreeRTOS", "C/C++"], results: ["± 2 cm accuracy", "0.8 m/s speed", "5 kg max load"] } },

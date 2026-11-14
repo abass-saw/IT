@@ -50,14 +50,14 @@ try {
       <span class="logo-text"><span class="logo-surname">SAWADOGO </span>Mahmoud Abass</span>
     </a>
     <ul class="nav-links" id="nav-menu">
-      <li><a href="#profil" class="nav-link" data-target="profil"><i class="fas fa-user"></i><span data-i18n="nav.profil"></span></a></li>
+      <li><a href="#profil" class="nav-link" data-target="profil"><span data-i18n="nav.profil"></span></a></li>
       <li><a href="#formations" class="nav-link" data-target="formations"><span data-i18n="nav.formations"></span></a></li>
-      <li><a href="#experiences" class="nav-link" data-target="experiences"><i class="fas fa-briefcase"></i><span data-i18n="nav.experiences"></span></a></li>
+      <li><a href="#experiences" class="nav-link" data-target="experiences"><span data-i18n="nav.experiences"></span></a></li>
       <li><a href="#competences" class="nav-link" data-target="competences"><span data-i18n="nav.competences"></span></a></li>
-      <li><a href="#projets" class="nav-link" data-target="projets"><i class="fas fa-diagram-project"></i><span data-i18n="nav.projets"></span></a></li>
+      <li><a href="#projets" class="nav-link" data-target="projets"><span data-i18n="nav.projets"></span></a></li>
       <li><a href="#outils" class="nav-link" data-target="outils"><span data-i18n="nav.outils"></span></a></li>
       <li><a href="#certifications" class="nav-link" data-target="certifications"><span data-i18n="nav.certifications"></span></a></li>
-      <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope"></i><span data-i18n="nav.contact"></span></a></li>
+      <li><a href="#contact" class="nav-link" data-target="contact"><span data-i18n="nav.contact"></span></a></li>
     </ul>
     <div class="nav-tools">
       <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
@@ -104,10 +104,10 @@ try {
       <p class="hero-goal-label" data-i18n="hero.goal"></p>
       <ul class="hero-goals" id="hero-goals"></ul>
       <div class="hero-buttons" id="hero-buttons">
-        <a href="#" class="btn btn-primary" id="cv-btn" download><i class="fas fa-download"></i><span data-i18n="hero.cv"></span></a>
-        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i><span data-i18n="hero.contact"></span></a>
-        <a href="#" class="btn btn-outline" id="whatsapp-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
-        <a href="#" class="btn btn-outline" id="linkedin-btn" target="_blank" rel="noopener" hidden><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="#" class="btn btn-primary" id="cv-btn" download><span data-i18n="hero.cv"></span></a>
+        <a href="#contact" class="btn btn-outline"><span data-i18n="hero.contact"></span></a>
+        <a href="#" class="btn btn-outline" id="whatsapp-btn" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#" class="btn btn-outline" id="linkedin-btn" target="_blank" rel="noopener" hidden>LinkedIn</a>
       </div>
     </div>
 
@@ -162,7 +162,7 @@ try {
     <div class="container">
       <div class="section-head"><h2 data-i18n="projets.title"></h2><p class="section-desc" data-i18n="projets.desc"></p></div>
       <div class="projects-grid" id="projects-grid"></div>
-      <div class="center-row"><button type="button" class="btn btn-outline" data-open="allprojects:all"><i class="fas fa-list"></i><span data-i18n="projets.all"></span></button></div>
+      <div class="center-row"><button type="button" class="btn btn-outline" data-open="allprojects:all"><span data-i18n="projets.all"></span></button></div>
     </div>
   </section>
 
@@ -203,8 +203,8 @@ try {
     <div class="container">
       <div class="section-head"><h2 data-i18n="langues.title"></h2></div>
       <div class="lang-hobby-grid">
-        <div class="lh-card"><h3><i class="fas fa-language"></i><span data-i18n="langues.langTitle"></span></h3><ul id="lang-list"></ul></div>
-        <div class="lh-card"><h3><i class="fas fa-heart"></i><span data-i18n="langues.hobbyTitle"></span></h3><ul id="hobby-list"></ul></div>
+        <div class="lh-card"><h3><span data-i18n="langues.langTitle"></span></h3><ul id="lang-list"></ul></div>
+        <div class="lh-card"><h3><span data-i18n="langues.hobbyTitle"></span></h3><ul id="hobby-list"></ul></div>
       </div>
     </div>
   </section>
@@ -215,10 +215,10 @@ try {
       <div class="section-head"><h2 data-i18n="contact.title"></h2><p class="section-desc" data-i18n="contact.desc"></p></div>
       <div class="contact-grid">
         <ul class="contact-info">
-          <li><i class="fas fa-location-dot"></i><span data-i18n="contact.location"></span></li>
-          <li><i class="fab fa-whatsapp"></i><a id="contact-whatsapp" href="#" target="_blank" rel="noopener" data-i18n="contact.whatsapp"></a></li>
-          <li id="contact-email-row" hidden><i class="fas fa-envelope"></i><a id="contact-email" href="#"></a></li>
-          <li id="contact-linkedin-row" hidden><i class="fab fa-linkedin"></i><a id="contact-linkedin" href="#" target="_blank" rel="noopener" data-i18n="contact.linkedin"></a></li>
+          <li><span data-i18n="contact.location"></span></li>
+          <li><a id="contact-whatsapp" href="#" target="_blank" rel="noopener" data-i18n="contact.whatsapp"></a></li>
+          <li id="contact-email-row" hidden><a id="contact-email" href="#"></a></li>
+          <li id="contact-linkedin-row" hidden><a id="contact-linkedin" href="#" target="_blank" rel="noopener" data-i18n="contact.linkedin"></a></li>
         </ul>
         <form class="contact-form" id="contact-form" novalidate>
           <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
@@ -226,7 +226,7 @@ try {
           <input type="text" name="name" id="input-name" autocomplete="name" required>
           <input type="email" name="email" id="input-email" autocomplete="email" required>
           <textarea name="message" id="input-message" required></textarea>
-          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i><span data-i18n="contact.send"></span></button>
+          <button type="submit" class="btn btn-primary"><span data-i18n="contact.send"></span></button>
         </form>
       </div>
     </div>

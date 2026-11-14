@@ -34,7 +34,7 @@ document.addEventListener("error", (e) => {
   const div = document.createElement("div");
   const type = el.dataset.fallbackType || "badge";
   div.className = `icon-fallback icon-fallback-${type}`;
-  div.innerHTML = type === "avatar" ? "MA" : `<i class="fas ${el.dataset.fallbackIcon}"></i>`;
+  div.innerHTML = type === "avatar" ? "MA" : (el.dataset.fallbackText || `<i class="fas ${el.dataset.fallbackIcon}"></i>`);
   el.replaceWith(div);
 }, true);
 
@@ -44,6 +44,10 @@ function renderMedia(src, alt, icon, type, cls, fb) {
 }
 function renderMediaVideo(src, icon, type, cls) {
   return `<video${cls ? ` class="${cls}"` : ""} autoplay muted loop playsinline data-fallback-icon="${icon}" data-fallback-type="${type}"><source src="${src}" type="video/mp4"></video>`;
+}
+/* Logo d'établissement : si le fichier manque, un monogramme (FSTF, FSTT, LTN) s'affiche à la place */
+function logoImg(f, x, cls) {
+  return `<img class="${cls}" src="${f.img}" alt="${esc(x.place)}" loading="lazy" data-fallback-text="${f.mono}" data-fallback-icon="" data-fallback-type="logo">`;
 }
 const CAT_ICON = { telecom: "fa-tower-broadcast", iot: "fa-microchip", auto: "fa-gear", ia: "fa-brain", fpga: "fa-microchip", fsm: "fa-code-branch", instru: "fa-gauge", adas: "fa-car", web: "fa-laptop-code", adhoc: "fa-network-wired" };
 const projMedia = (p, type, cls) => !p.media ? "" :
@@ -101,10 +105,10 @@ function renderFormations() {
   $("formations-list").innerHTML = FORMATIONS.map((f) => {
     const x = f[LANG];
     return `<div class="tl-item">
-      <div class="tl-dot"><i class="fas ${f.icon}"></i></div>
+      <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-head">
-          ${renderMedia(f.img, x.place, f.icon, "badge", "tl-logo")}
+          ${logoImg(f, x, "tl-logo")}
           <div><span class="tl-date">${x.date}</span><h3>${x.place}</h3></div>
         </div>
         <p class="tl-degree">${x.title}</p>
@@ -131,40 +135,46 @@ function renderExperiences() {
   }).join("");
 }
 
+const pad2 = (n) => String(n).padStart(2, "0");
 function renderSkills() {
   $("skills-container").innerHTML = ["telecom", "polyvalence"].map((g) => {
     const items = SKILLS.filter((s) => s.group === g);
-    return `<div class="skills-block">
-      <div class="skills-block-head"><h3>${t("groups." + g)}</h3><span class="badge ${g === "telecom" ? "" : "soft"}">${items.length} ${t("skills")}</span></div>
-      <div class="skills-grid">${items.map((s) => `
-        <div class="skill-card" data-open="skill:${s.id}"><h4>${s[LANG].title}</h4><p>${s[LANG].short}</p></div>`).join("")}</div>
+    return `<div class="group-block">
+      <aside class="group-side"><span class="group-count">${pad2(items.length)}</span><h3>${t("groups." + g)}</h3><p>${t("groupDesc." + g)}</p></aside>
+      <div class="skills-grid">${items.map((s, i) => `
+        <div class="skill-card" data-open="skill:${s.id}"><span class="skill-num">${pad2(i + 1)}</span><h4>${s[LANG].title}</h4><p>${s[LANG].short}</p></div>`).join("")}</div>
     </div>`;
   }).join("");
 }
 
 function renderProjects() {
-  $("projects-grid").innerHTML = PROJECTS.filter((p) => p.featured).map((p) => `
-    <div class="project" data-open="project:${p.id}">
-      <div class="project-media">
-        <span class="project-tag badge"><i class="fas ${CAT_ICON[p.cat] || "fa-diagram-project"}"></i> ${t("cats." + p.cat)}</span>
-        ${projMedia(p, "media")}
-      </div>
-      <div class="project-info">
-        <h3>${p[LANG].title}</h3>
-        <p>${p[LANG].desc}</p>
-        <span class="link-btn">${t("projets.more")} <i class="fas fa-arrow-right"></i></span>
-      </div></div>`).join("");
+  $("projects-grid").innerHTML = PROJECTS.filter((p) => p.featured).map((p, i) => {
+    const x = p[LANG], tech = (x.technologies || []).slice(0, 4);
+    return `<article class="pcard ${i % 5 === 2 ? "wide" : ""}" data-open="project:${p.id}">
+      <div class="pcard-media">${projMedia(p, "media")}</div>
+      <div class="pcard-body">
+        <span class="pcard-kicker">${t("cats." + p.cat)} · ${x.date}</span>
+        <h3>${x.title}</h3>
+        <p>${x.desc}</p>
+        ${tech.length ? `<div class="pcard-tags">${tech.map((s) => `<span>${s}</span>`).join("")}</div>` : ""}
+        <span class="pcard-link">${t("projets.more")} ↗</span>
+      </div></article>`;
+  }).join("");
 }
 
 function renderTools() {
-  $("tools-container").innerHTML = ["telecom", "polyvalence"].map((g) => `
-    <div class="tools-category">
-      <div class="tools-category-head"><h3>${t("groups." + g)}</h3></div>
-      <div class="tools-grid">${TOOLS.filter((x) => x.group === g).map((x, i) => `
-        <div class="tool-card" data-open="tool:${g}-${i}">
+  $("tools-container").innerHTML = ["telecom", "polyvalence"].map((g) => {
+    const items = TOOLS.filter((x) => x.group === g);
+    return `<div class="group-block">
+      <aside class="group-side"><span class="group-count">${pad2(items.length)}</span><h3>${t("groups." + g)}</h3><p>${t("groupTools." + g)}</p></aside>
+      <div class="tools-grid">${items.map((x, i) => {
+        const big = g === "telecom" ? i === 0 : i % 3 === 0;     // tuiles mises en avant : mise en page variée
+        return `<div class="tool-card ${big ? "big" : ""}" data-open="tool:${g}-${i}">
           ${renderMedia(x.img, x[LANG].name, x.icon || "fa-toolbox", "badge-sm")}
-          <p>${x[LANG].name}</p></div>`).join("")}
-      </div></div>`).join("");
+          <div class="tool-text"><b>${x[LANG].name}</b><span>${x[LANG].detail}</span></div></div>`;
+      }).join("")}</div>
+    </div>`;
+  }).join("");
 }
 
 function renderCerts() {
@@ -172,20 +182,21 @@ function renderCerts() {
     <div class="cert-category">
       <div class="cert-category-head"><h3>${t("groups." + g)}</h3></div>
       <div class="cert-grid">${CERTS.filter((x) => x.group === g).map((x, i) => `
-        <div class="cert-card" data-open="cert:${g}-${i}">
+        <article class="cert-card" data-open="cert:${g}-${i}">
           <div class="cert-image-container">${renderMedia(x.img, x[LANG].title, "fa-certificate", "cert")}</div>
-          <div class="cert-info"><h4>${x[LANG].title}</h4></div></div>`).join("")}
+          <div class="cert-info"><h4>${x[LANG].title}</h4><p>${x[LANG].detail}</p><span class="link-btn">${t("certifications.zoom")} ↗</span></div>
+        </article>`).join("")}
       </div></div>`).join("");
 }
 
 function renderAwards() {
   $("awards-grid").innerHTML = AWARDS.map((a) => `
-    <article class="info-card"><div class="ic"><i class="fas ${a.icon}"></i></div>
+    <article class="info-card">
       <h3>${a[LANG].title}</h3><p>${a[LANG].detail}</p></article>`).join("");
 }
 function renderAssoc() {
   $("assoc-grid").innerHTML = ASSOC.map((a) => `
-    <article class="info-card"><div class="ic"><i class="fas ${a.icon}"></i></div>
+    <article class="info-card">
       <span class="date">${a[LANG].date}</span><h3>${a[LANG].title}</h3><p>${a[LANG].detail}</p></article>`).join("");
 }
 function renderLangHobby() {
@@ -198,6 +209,7 @@ function renderAll() {
   renderFormations(); renderExperiences(); renderSkills(); renderProjects();
   renderTools(); renderCerts(); renderAwards(); renderAssoc(); renderLangHobby();
   bindA11y();
+  observeVideos();
 }
 /* Rend les éléments cliquables atteignables au clavier (rôle + tabindex) */
 function bindA11y() {
@@ -287,20 +299,20 @@ function openDetail(type, id) {
 
   if (type === "formation") {
     const f = FORMATIONS.find((x) => x.id === id), x = f[LANG];
-    html = `${renderMedia(f.img, x.place, f.icon, "badge-lg", "modal-image")}
+    html = `${logoImg(f, x, "modal-logo")}
       <span class="badge modal-eyebrow">${x.date}</span>
       <h2 class="modal-title">${x.place}</h2>
       <span class="modal-date">${x.title}</span>
       <div class="modal-section"><p>${x.intro}</p></div>
-      <div class="modal-section"><h5><i class="fas fa-book-open"></i> ${t("modal.content")}</h5>${bulletList(x.details)}</div>
-      <div class="modal-section"><h5><i class="fas fa-medal"></i> ${t("modal.excellence")}</h5>${bulletList(x.excellence)}</div>`;
+      <div class="modal-section"><h5>${t("modal.content")}</h5>${bulletList(x.details)}</div>
+      <div class="modal-section"><h5>${t("modal.excellence")}</h5>${bulletList(x.excellence)}</div>`;
   }
   else if (type === "skill") {
     const s = SKILLS.find((x) => x.id === id);
     html = `<span class="badge modal-eyebrow ${s.group === "telecom" ? "" : "soft"}">${t("groups." + s.group)}</span>
       <h2 class="modal-title">${s[LANG].title}</h2>
       <div class="modal-section"><p>${s[LANG].detail}</p></div>
-      <div class="modal-section"><h5><i class="fas fa-bullseye"></i> ${t("modal.whatICanDo")}</h5><p>${s[LANG].short}</p></div>`;
+      <div class="modal-section"><h5>${t("modal.whatICanDo")}</h5><p>${s[LANG].short}</p></div>`;
   }
   else if (type === "tool") {
     const [g, i] = id.split("-"), x = TOOLS.filter((y) => y.group === g)[i];
@@ -312,9 +324,9 @@ function openDetail(type, id) {
   else if (type === "cert") {
     const [g, i] = id.split("-"), x = CERTS.filter((y) => y.group === g)[i];
     html = `<span class="badge modal-eyebrow ${g === "telecom" ? "" : "soft"}">${t("groups." + g)}</span>
-      ${renderMedia(x.img, x[LANG].title, "fa-certificate", "badge-lg", "modal-image")}
+      ${renderMedia(x.img, x[LANG].title, "fa-certificate", "badge-lg", "modal-cert")}
       <h2 class="modal-title">${x[LANG].title}</h2>
-      <div class="modal-section"><h5><i class="fas fa-lightbulb"></i> ${t("modal.whatLearned")}</h5><p>${x[LANG].detail}</p></div>
+      <div class="modal-section"><h5>${t("modal.whatLearned")}</h5><p>${x[LANG].detail}</p></div>
       ${x.url ? `<a class="modal-verify" href="${x.url}" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> ${t("modal.verify")}</a>` : ""}`;
   }
   else if (type === "exp") {
@@ -323,10 +335,10 @@ function openDetail(type, id) {
     html = `<span class="badge modal-eyebrow ${e.telecom ? "" : "soft"}">${t("groups." + grp)}</span>
       <h2 class="modal-title">${x.role}</h2>
       <span class="modal-date">${x.company} — ${x.date}</span>
-      <div class="modal-section"><h5><i class="fas fa-clipboard-list"></i> ${t("modal.context")}</h5>${x.detail.split("\n\n").map((p) => `<p>${p}</p>`).join("")}</div>
-      <div class="modal-section"><h5><i class="fas fa-list-check"></i> ${t("modal.skillsUsed")}</h5>${bulletList(x.bullets)}</div>
-      ${(x.technologies || e.technologies) ? `<div class="modal-section"><h5><i class="fas fa-screwdriver-wrench"></i> ${t("modal.technologies")}</h5>${tagList(x.technologies || e.technologies)}</div>` : ""}
-      ${x.results ? `<div class="modal-section"><h5><i class="fas fa-circle-check"></i> ${t("modal.results")}</h5>${bulletList(x.results)}</div>` : ""}`;
+      <div class="modal-section"><h5>${t("modal.context")}</h5>${x.detail.split("\n\n").map((p) => `<p>${p}</p>`).join("")}</div>
+      <div class="modal-section"><h5>${t("modal.skillsUsed")}</h5>${bulletList(x.bullets)}</div>
+      ${(x.technologies || e.technologies) ? `<div class="modal-section"><h5>${t("modal.technologies")}</h5>${tagList(x.technologies || e.technologies)}</div>` : ""}
+      ${x.results ? `<div class="modal-section"><h5>${t("modal.results")}</h5>${bulletList(x.results)}</div>` : ""}`;
   }
   else if (type === "project") {
     const p = PROJECTS.find((x) => x.id === id), x = p[LANG];
@@ -335,10 +347,10 @@ function openDetail(type, id) {
       <span class="badge modal-eyebrow">${t("cats." + p.cat)}</span>
       <h2 class="modal-title">${x.title}</h2>
       <span class="modal-date">${x.date}</span>
-      <div class="modal-section"><h5><i class="fas fa-clipboard-list"></i> ${t("modal.context")}</h5><p>${x.context || x.desc}</p></div>
-      ${x.objectives ? `<div class="modal-section"><h5><i class="fas fa-bullseye"></i> ${t("modal.objectives")}</h5>${bulletList(x.objectives)}</div>` : ""}
-      ${x.technologies ? `<div class="modal-section"><h5><i class="fas fa-screwdriver-wrench"></i> ${t("modal.technologies")}</h5>${tagList(x.technologies)}</div>` : ""}
-      ${x.results ? `<div class="modal-section"><h5><i class="fas fa-circle-check"></i> ${t("modal.results")}</h5>${bulletList(x.results)}</div>` : ""}
+      <div class="modal-section"><h5>${t("modal.context")}</h5><p>${x.context || x.desc}</p></div>
+      ${x.objectives ? `<div class="modal-section"><h5>${t("modal.objectives")}</h5>${bulletList(x.objectives)}</div>` : ""}
+      ${x.technologies ? `<div class="modal-section"><h5>${t("modal.technologies")}</h5>${tagList(x.technologies)}</div>` : ""}
+      ${x.results ? `<div class="modal-section"><h5>${t("modal.results")}</h5>${bulletList(x.results)}</div>` : ""}
       ${(p.caseStudyUrl || p.report || fromList) ? `<div class="modal-actions">
         ${p.caseStudyUrl ? `<a href="${p.caseStudyUrl}" class="btn btn-primary"><i class="fas fa-arrow-up-right-from-square"></i> ${t("modal.caseStudy")}</a>` : ""}
         ${reportButton(p)}
@@ -357,6 +369,7 @@ function openDetail(type, id) {
       </div>`).join("");
   }
 
+  $("detail-modal").querySelector(".modal-content").classList.toggle("wide", type === "cert");
   $("modal-body").innerHTML = html;
   $("detail-modal").querySelector(".modal-content").scrollTop = 0;
   bindA11y();
@@ -453,7 +466,7 @@ navMenu.querySelectorAll(".nav-link").forEach((l) => l.addEventListener("click",
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach((en) => { en.isIntersecting ? en.target.play().catch(() => {}) : en.target.pause(); });
 }, { threshold: .25 });
-function observeVideos() { document.querySelectorAll("#modal-body video").forEach((v) => videoObserver.observe(v)); }
+function observeVideos() { document.querySelectorAll(".pcard video, #modal-body video").forEach((v) => videoObserver.observe(v)); }
 
 /* Compteurs animés du hero */
 function countUp(el, target) {

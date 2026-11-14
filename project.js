@@ -26,7 +26,7 @@ document.addEventListener("error", (e) => {
 
 const bullets = (arr) => `<ul>${arr.map((x) => `<li>${x}</li>`).join("")}</ul>`;
 const tags = (arr) => `<div class="tags">${arr.map((x) => `<span class="tag">${x}</span>`).join("")}</div>`;
-const section = (icon, title, body) => `<section class="pj-section"><h2><i class="fas ${icon}"></i> ${title}</h2>${body}</section>`;
+const section = (icon, title, body) => `<section class="pj-section"><h2>${title}</h2>${body}</section>`;
 
 function media(p) {
   if (!p.media) return "";
@@ -40,10 +40,10 @@ function media(p) {
 function pager() {
   const prev = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length];
   const next = PROJECTS[(index + 1) % PROJECTS.length];
-  return `<nav class="pj-pager" aria-label="Projets">
+  return `<div class="pj-pager" role="navigation" aria-label="Projets">
     <a href="${projectUrl(prev)}"><small><i class="fas fa-arrow-left"></i> ${t("pj.prev")}</small><b>${prev[LANG].title}</b></a>
     <a href="${projectUrl(next)}" class="next"><small>${t("pj.next")} <i class="fas fa-arrow-right"></i></small><b>${next[LANG].title}</b></a>
-  </nav>`;
+  </div>`;
 }
 
 function render() {
@@ -70,7 +70,7 @@ function render() {
   $("doc-title").textContent = `${x.title} — SAWADOGO Mahmoud Abass`;
 
   root.innerHTML = `
-    <div class="pj-meta"><span class="badge"><i class="fas ${CAT_ICON[p.cat] || "fa-diagram-project"}"></i> ${t("cats." + p.cat)}</span><span class="tl-date">${x.date}</span></div>
+    <div class="pj-meta"><span class="badge">${t("cats." + p.cat)}</span><span class="tl-date">${x.date}</span></div>
     <h1 class="pj-title">${x.title}</h1>
     <p class="pj-lead">${x.desc}</p>
     ${media(p)}

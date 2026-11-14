@@ -6,10 +6,10 @@
 /* ---------- 0. CONFIGURATION (à adapter) ---------- */
 const CONFIG = {
   WHATSAPP: "212619942459",                         // numéro international sans "+"
-  EMAIL: "",                                         // ex : "prenom@mail.com" (masqué si vide)
+  EMAIL: "absdg70@gmail.com",                       // ex : "prenom@mail.com" (masqué si vide)
   LINKEDIN_URL: "",                                  // ex : "https://www.linkedin.com/in/..." (masqué si vide)
   CV_URL: "assets/CV_SAWADOGO_Mahmoud_Abass.pdf",    // chemin du CV
-  FORM_ACTION: "",                                   // ex : "https://formspree.io/f/XXXX" (sinon envoi via WhatsApp)
+  FORM_ACTION: "www.linkedin.com/in/mahmoud-abass-sawadogo-2474722a0",       // ex : "https://formspree.io/f/XXXX" (sinon envoi via WhatsApp)
   /* Mot de passe des rapports : SHA-256 de "ChangeMe2026".
      Pour changer : génère le hash de ton mot de passe (voir README) et remplace-le ici. */
   REPORT_PASSWORD_SHA256: "9a121fc874029e54c9a5cdc28436af9787e1b2351bc8236a3f88b105b0c08f45"
@@ -24,7 +24,7 @@ const UI = {
       role: "Ingénieur d'État junior en <strong>Systèmes Intelligents, Communicants et Mobiles</strong>",
       sub: "Spécialisé en réseaux, télécommunications et transmission : faisceaux hertziens, fibre optique, radiofréquences et routage IP, avec une polyvalence en systèmes embarqués et automatisme industriel.",
       goal: "Je recherche des opportunités professionnelles :",
-      goals: ["Stage PFE", "CDI", "CDD", "Missions techniques"],
+      goals: ["CDI", "CDD", "Missions techniques", "Freelance"],
       cv: "Télécharger le CV", contact: "Me contacter",
       stat1: "Technologies maîtrisées", stat2: "Expériences professionnelles", stat3: "Projets réalisés"
     },
@@ -58,7 +58,7 @@ const UI = {
       role: "Junior state engineer in <strong>Intelligent, Communicating and Mobile Systems</strong>",
       sub: "Specialized in networks, telecommunications and transmission: microwave links, optical fiber, radio frequency and IP routing, with versatility in embedded systems and industrial automation.",
       goal: "I am looking for professional opportunities:",
-      goals: ["Final-year internship", "Permanent role", "Fixed-term role", "Technical assignments"],
+      goals: ["Permanent role", "Fixed-term role", "Technical assignments", "Freelance"],
       cv: "Download CV", contact: "Get in touch",
       stat1: "Technologies mastered", stat2: "Professional experiences", stat3: "Projects completed"
     },
@@ -90,7 +90,7 @@ const UI = {
 /* ---------- 2. FORMATIONS ---------- */
 const FORMATIONS = [
   {
-    id: "fstf", icon: "fa-graduation-cap", img: "assets/logos/logo_fstf.png", mono: "FSTF",
+    id: "fstf", icon: "fa-graduation-cap", img: "assets/fstf.jpeg", mono: "FSTF",
     fr: {
       date: "2024 – 2026", place: "Faculté des Sciences et Techniques de Fès (USMBA)",
       title: "Diplôme d'ingénieur d'État — Systèmes Intelligents, Communicants et Mobiles (SICoM)",
@@ -107,7 +107,7 @@ const FORMATIONS = [
     }
   },
   {
-    id: "fstt", icon: "fa-book", img: "assets/logos/logo_fstt.png", mono: "FSTT",
+    id: "fstt", icon: "fa-book", img: "assets/logos/fstt.png", mono: "FSTT",
     fr: {
       date: "2021 – 2024", place: "FST Tanger (Université Abdelmalek Essaâdi)",
       title: "Licence en Génie Électrique et Systèmes Industriels",
@@ -124,7 +124,7 @@ const FORMATIONS = [
     }
   },
   {
-    id: "ltn", icon: "fa-book-open", img: "assets/logos/logo_ltn_asl.png", mono: "LTN",
+    id: "ltn", icon: "fa-book-open", img: "assets/logos/ltnasl.jpeg", mono: "LTN",
     fr: {
       date: "2018 – 2021", place: "Lycée Technique National Aboubacar Sangoulé Lamizana (LTN ASL)",
       title: "Série F2 — Électronique",
@@ -277,7 +277,7 @@ const SKILLS = [
    media / context / objectives / technologies / results : optionnels                 */
 const PROJECTS = [
   { id: "ipsec", cat: "telecom", featured: true, report: "reports/rapport_ipsec.pdf", caseStudyUrl: "project_ipsec.html",
-    media: { type: "img", src: "images_projets_IPsec/fig_topologie_gns3.jpeg", fallback: "assets/projets/ipsec_cover.svg" },
+    media: { type: "img", src: "images_projets_IPsec/fig_topologie_gns3.jpeg", fallback: "assets/images_projets_IPSec/fig_topologie_gns3.jpeg" },
     fr: { title: "VPN IPsec multisite Hub-and-Spoke (Cisco IOS)", date: "2025", desc: "Conception, déploiement et qualification sous Wireshark d'une topologie WAN chiffrée avec transit inter-agences (hairpinning).",
       context: "Projet technique personnel visant à interconnecter un siège et deux agences distantes via un opérateur public (FAI) simulé, sans routage privé préalable (RFC 1918).",
       objectives: ["Découplage strict entre l'underlay (liens point-à-point /30) et l'overlay (LAN d'entreprise)", "Configuration IKEv1 phase 1 (AES-256 / SHA-1 / DH2 / PSK) et IPsec ESP en mode tunnel", "Routage de transit inter-agences (hairpinning) orchestré sur le concentrateur central R1-HUB", "Audit Wireshark (protocole 50) et corrélation hexadécimale des SPI"],
